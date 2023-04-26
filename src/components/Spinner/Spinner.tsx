@@ -1,4 +1,4 @@
-import { useState, useEffect, Suspense } from "react";
+import { useState, Suspense } from "react";
 import { useMediaQuery } from "react-responsive";
 import { BounceLoader, PacmanLoader } from "react-spinners";
 type Props = {
@@ -7,11 +7,7 @@ type Props = {
 
 const Index: React.FC<Props> = ({ toggle }) => {
   const [loading] = useState<boolean>(true);
-  const [size, setSize] = useState<number>(15);
   const isMobile: boolean = useMediaQuery({ query: `(max-width: 768px)` });
-  useEffect(() => {
-    if (!isMobile) setSize(30);
-  }, [isMobile]);
   return (
     <Suspense>
       <div
@@ -26,14 +22,14 @@ const Index: React.FC<Props> = ({ toggle }) => {
             data-testid="full-loader"
             color="#FF5403"
             loading={loading}
-            size={size}
+            size={isMobile ? 15 : 30}
           />
         ) : (
           <BounceLoader
             data-testid="free-loader"
             color="#FF5403"
             loading={loading}
-            size={size}
+            size={isMobile ? 15 : 30}
           />
         )}
       </div>

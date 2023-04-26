@@ -1,4 +1,4 @@
-import React, { Suspense, useState, useEffect } from "react";
+import React, { Suspense } from "react";
 import {
   AreaChart,
   Area,
@@ -16,15 +16,7 @@ type Props = {
 };
 
 const Chart: React.FC<Props> = ({ data, total }) => {
-  const [aspect, setAspect] = useState<number>(1);
-  const [minHeight, setMinHeight] = useState<string>("");
   const isMobile: boolean = useMediaQuery({ query: `(max-width: 768px)` });
-  useEffect(() => {
-    if (!isMobile) {
-      setAspect(2.5);
-      setMinHeight("400px");
-    }
-  }, [isMobile]);
   return (
     <Suspense>
       <div className="my-5 flex items-center justify-start font-sohne flex-wrap">
@@ -89,9 +81,9 @@ const Chart: React.FC<Props> = ({ data, total }) => {
         </h1>
         <ResponsiveContainer
           width="100%"
-          aspect={aspect}
+          aspect={isMobile ? 1 : 2.5}
           className={"w-full "}
-          minHeight={minHeight}
+          minHeight={isMobile ? "" : "400px"}
         >
           <AreaChart
             width={500}
