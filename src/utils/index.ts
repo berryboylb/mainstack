@@ -1,6 +1,6 @@
 import toast from "react-hot-toast";
 import axios from "axios";
-import {  Facebook, LinkedIn, Twitter } from "../assets";
+import { Facebook, LinkedIn, Twitter } from "../assets";
 export function formatDate(dateString: string) {
   const date = new Date(dateString);
   const monthNames = [
@@ -50,7 +50,7 @@ export const arrangeData = (obj: any) => {
 
 export function getTotal(obj: any) {
   let total = 0;
-  Object.entries(obj).forEach(([key, value]) => (total += value as number));
+  Object.entries(obj).forEach(([, value]) => (total += value as number));
   return total;
 }
 
