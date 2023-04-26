@@ -35,6 +35,8 @@ const Index: React.FC<Props> = ({
             <button
               className=" hidden lg:block text-icon text-2xl mr-5 hover:opacity-80 ease-in duration-300 "
               onClick={() => setExpand(!expand)}
+              id="expand"
+              aria-label="expand"
             >
               <FontAwesomeIcon icon={expand ? faTimes : faBars} />
             </button>
@@ -53,6 +55,8 @@ const Index: React.FC<Props> = ({
             role="button"
             onClick={handleMobileNav}
             className="block lg:hidden  text-icon text-xl lg:text-2xl  hover:opacity-80 ease-in duration-300"
+            id="mobileNav"
+            aria-label="mobileNav"
           >
             <FontAwesomeIcon icon={mobileNav ? faTimes : faBars} />
           </button>
@@ -60,7 +64,7 @@ const Index: React.FC<Props> = ({
       </header>
       <div className="my-3">
         <h1 className="  text-bold lg:text-[1.5rem] text-[1.25rem] font-semibold">
-          {currentGreeting}
+          {currentGreeting ? currentGreeting : "Good morning, Blessing ⛅️"}
         </h1>
         <div className="flex items-center justify-between mt-2 w-full flex-wrap ">
           <p className="text-light lg:text-[0.875rem] text-[0.75rem] w-full lg:w-auto">

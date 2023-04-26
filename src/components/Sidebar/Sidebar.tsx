@@ -56,13 +56,15 @@ const Index: React.FC<Props> = ({ mobileNav, expand }) => {
             }
           >
             {ListOne.map((link, i) => (
-              <SideBarLink
-                key={i}
-                isIconMode={expand}
-                Icon={link.icon}
-                {...link}
-                path={link.path}
-              />
+              <li className=" w-full my-2 py-3">
+                <SideBarLink
+                  key={i}
+                  isIconMode={expand}
+                  Icon={link.icon}
+                  {...link}
+                  path={link.path}
+                />
+              </li>
             ))}
           </ul>
         )}
@@ -82,13 +84,15 @@ const Index: React.FC<Props> = ({ mobileNav, expand }) => {
             }
           >
             {ListTwo.map((link, i) => (
-              <SideBarLink
-                key={i}
-                isIconMode={expand}
-                Icon={link.icon}
-                {...link}
-                path={link.path}
-              />
+              <li className=" w-full my-2 py-3">
+                <SideBarLink
+                  key={i}
+                  isIconMode={expand}
+                  Icon={link.icon}
+                  {...link}
+                  path={link.path}
+                />
+              </li>
             ))}
           </ul>
         )}
@@ -108,13 +112,15 @@ const Index: React.FC<Props> = ({ mobileNav, expand }) => {
             }
           >
             {ListThree.map((link, i) => (
-              <SideBarLink
-                key={i}
-                isIconMode={expand}
-                Icon={link.icon}
-                {...link}
-                path={link.path}
-              />
+              <li className=" w-full my-2 py-3">
+                <SideBarLink
+                  key={i}
+                  isIconMode={expand}
+                  Icon={link.icon}
+                  {...link}
+                  path={link.path}
+                />
+              </li>
             ))}
           </ul>
         )}

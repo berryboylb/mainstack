@@ -7,10 +7,10 @@ type Props = {
 
 const Index: React.FC<Props> = ({ toggle }) => {
   const [loading] = useState<boolean>(true);
-  const [size, setSize] = useState<number>(30);
+  const [size, setSize] = useState<number>(15);
   const isMobile: boolean = useMediaQuery({ query: `(max-width: 768px)` });
   useEffect(() => {
-    if (isMobile) setSize(15);
+    if (!isMobile) setSize(30);
   }, [isMobile]);
   return (
     <Suspense>

@@ -43,7 +43,7 @@ const DashboardLayout: React.FC<Props> = ({ children }) => {
               mobileNav={mobileNav}
               handleMobileNav={handleMobileNav}
             />{" "}
-            <div className="bg-white">{children}</div>
+            <div className="bg-white w-full h-screen">{children}</div>
           </div>
         </div>
       </div>

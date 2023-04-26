@@ -36,16 +36,18 @@ const Chart: React.FC<Props> = ({ data }) => {
                   <img
                     src={item.flag}
                     alt={item.flag}
+                    width={"21px"}
+                    height={"20px"}
                     className="w-[21px] h-[20px] object-contain rounded-[5px]"
                   />
-                  <h3 className="flex items-center ml-2 text-bold text-sm lg:text-base capitalize">
+                  <h4 className="flex items-center ml-2 text-bold text-sm lg:text-base capitalize">
                     {item.source}{" "}
                     <span className="ml-2 font-semibold">{item.percent}%</span>
                     <span
                       className="w-[12px] h-[12px] rounded-full bg-primary ml-2"
                       style={{ background: item.color }}
                     ></span>
-                  </h3>
+                  </h4>
                 </div>
               ))}
           </div>
