@@ -1,4 +1,4 @@
-import { Suspense, lazy, useState, useEffect } from "react";
+import { Suspense, lazy, useState, useEffect, useMemo } from "react";
 import Spinner from "../components/Spinner/Spinner";
 import { useQuery } from "react-query";
 import toast from "react-hot-toast";
@@ -26,6 +26,7 @@ const Home = () => {
     () => fetchData(),
     {
       onSuccess: (data) => {
+        console.log(data);
         if (data) toast.success("Successful");
       },
       onError: (err) => {
@@ -38,14 +39,33 @@ const Home = () => {
   const [refferal, setRefferal] = useState<any[]>();
   const [total, setTotal] = useState<number>(0);
 
+  const result = useMemo(
+    () => data && getTotal(data.graph_data.views),
+    [data]
+  );
+
+  const graphDat = useMemo(
+    () => data && arrangeData(data.graph_data.views),
+    [data]
+  );
+
+  const Locations = useMemo(
+    () => data && arangePieChart(data.top_locations),
+    [data]
+  );
+  const sources = useMemo(
+    () => data && arrangeSocials(data.top_sources),
+    [data]
+  );
+
   useEffect(() => {
     if (data) {
-      const result = getTotal(data.graph_data.views);
-      const graphData = arrangeData(data.graph_data.views);
-      const Locations = arangePieChart(data.top_locations);
-      const sources = arrangeSocials(data.top_sources);
+      // const result = getTotal(data.graph_data.views);
+      // const graphData = arrangeData(data.graph_data.views);
+      // const Locations = arangePieChart(data.top_locations);
+      // const sources = arrangeSocials(data.top_sources);
       setTotal(result);
-      setGraphData(graphData);
+      setGraphData(graphDat);
       setLocations(Locations);
       setRefferal(sources);
     }
