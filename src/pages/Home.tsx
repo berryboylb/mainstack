@@ -1,4 +1,4 @@
-import { Suspense, lazy, useState, useEffect, } from "react";
+import { Suspense, lazy, useState, useEffect } from "react";
 import Spinner from "../components/Spinner/Spinner";
 import { useQuery } from "react-query";
 import toast from "react-hot-toast";
@@ -9,9 +9,6 @@ import {
   arangePieChart,
   arrangeSocials,
 } from "../utils";
-// import LineChart from "../components/LineGraph/LineGraph";
-// import DonutChart from "../components/DonutGraph/DonutGraph";
-// import DonutChartAlt from "../components/DonutGraph/DonutGraphAlt";
 const DashboardLayout = lazy(() => import("../layouts/DashboardLayout"));
 const LineChart = lazy(() => import("../components/LineGraph/LineGraph"));
 const DonutChart = lazy(() => import("../components/DonutGraph/DonutGraph"));
