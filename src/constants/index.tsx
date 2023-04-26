@@ -14,7 +14,7 @@ export const ListOne = [
   {
     path: "/my/users",
     title: "Item 2",
-    icon: "user",
+    icon: "users",
   },
   {
     path: "/my/settings",

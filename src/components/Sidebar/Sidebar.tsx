@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { useMediaQuery } from "react-responsive";
-import { Logo } from "../../assets";
+import { Logo, Profile } from "../../assets";
 import { ListOne, ListTwo, ListThree } from "../../constants";
 
 const SideBarLink = React.lazy(() => import("../SideBarLink/SideBarLink"));
@@ -8,10 +8,9 @@ const SideBarLink = React.lazy(() => import("../SideBarLink/SideBarLink"));
 type Props = {
   mobileNav: boolean;
   expand: boolean;
-  userImg?: string;
 };
 
-const Index: React.FC<Props> = ({ mobileNav, expand, userImg }) => {
+const Index: React.FC<Props> = ({ mobileNav, expand }) => {
   const isMobile: boolean = useMediaQuery({ query: `(max-width: 768px)` });
   return (
     <Suspense>
@@ -19,7 +18,7 @@ const Index: React.FC<Props> = ({ mobileNav, expand, userImg }) => {
         className={
           isMobile
             ? mobileNav
-              ? " bottom-0 overflow-x-hidden overflow-y-auto -translate-x-[40%]  absolute right-0 top-0 h-screen bg-white text-link flex flex-col justify-evenly items-center w-[calc(100%-30vw)] lg:w-full ease-in duration-300 z-[99] border-r-2 border-b-2 border-[#EFF1F6]"
+              ? " bottom-0 overflow-x-hidden overflow-y-auto -translate-x-[40%]  fixed right-0 top-0 h-screen bg-white text-link flex flex-col justify-evenly items-center w-[calc(100%-30vw)] lg:w-full ease-in duration-300 z-[99] border-r-2 border-b-2 border-[#EFF1F6]"
               : "-translate-x-[100%] lg:translate-x-[0%] w-[18rem] bg-white text-link fixed top-0 bottom-0 overflow-x-hidden overflow-y-auto ease-in duration-300 z-[99] border-r-2 border-[#EFF1F6]"
             : expand
             ? "  w-[6rem] bg-white text-link fixed top-0 bottom-0 overflow-x-hidden overflow-y-auto ease-in duration-300 z-[99] border-r-2 border-[#EFF1F6]"
@@ -30,7 +29,7 @@ const Index: React.FC<Props> = ({ mobileNav, expand, userImg }) => {
           className={
             expand
               ? "flex justify-center items-center mt-5 "
-              : "flex justify-start items-start mt-5 "
+              : "flex justify-start items-start mt-5 w-full lg:w-auto  ml-[5rem] lg:ml-0"
           }
         >
           {expand ? (
@@ -69,7 +68,7 @@ const Index: React.FC<Props> = ({ mobileNav, expand, userImg }) => {
         )}
 
         {ListTwo && !expand && (
-          <h3 className="mt-7 text-[0.7rem] lg:text-[0.75rem] text-link font-sohne">
+          <h3 className="mt-7 text-[0.7rem] lg:text-[0.75rem] text-link font-sohne w-full lg:w-auto ml-[5rem] lg:ml-0">
             OTHERS 1
           </h3>
         )}
@@ -95,7 +94,7 @@ const Index: React.FC<Props> = ({ mobileNav, expand, userImg }) => {
         )}
 
         {ListThree && !expand && (
-          <h3 className="mt-7 text-[0.7rem] lg:text-[0.75rem] text-link font-sohne">
+          <h3 className="mt-7 text-[0.7rem] lg:text-[0.75rem] text-link font-sohne  w-full lg:w-auto ml-[5rem] lg:ml-0">
             OTHERS 2
           </h3>
         )}
@@ -120,14 +119,14 @@ const Index: React.FC<Props> = ({ mobileNav, expand, userImg }) => {
           </ul>
         )}
 
-        <div className="mt-2 cursor-pointer ">
+        <div className="mt-2 cursor-pointer w-full lg:w-auto ml-[5rem] lg:ml-0">
           {!expand ? (
-            <div className="flex items-center">
+            <div className="flex items-center ">
               <div className="  w-[32px]  h-[32px] my-[1rem]  rounded-full ">
                 <img
                   className="  w-full h-full object-cover rounded-full "
                   src={
-                    userImg ? userImg : "https://via.placeholder.com/100x100"
+                    Profile ? Profile : "https://via.placeholder.com/100x100"
                   }
                   alt="Image Alt"
                 />
@@ -143,7 +142,7 @@ const Index: React.FC<Props> = ({ mobileNav, expand, userImg }) => {
                 <img
                   className="  w-full h-full object-cover rounded-full "
                   src={
-                    userImg ? userImg : "https://via.placeholder.com/100x100"
+                    Profile ? Profile : "https://via.placeholder.com/100x100"
                   }
                   alt="Image Alt"
                 />

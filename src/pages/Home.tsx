@@ -9,10 +9,16 @@ import {
   arangePieChart,
   arrangeSocials,
 } from "../utils";
-import LineChart from "../components/LineGraph/LineGraph";
-import DonutChart from "../components/DonutGraph/DonutGraph";
-import DonutChartAlt from "../components/DonutGraph/DonutGraphAlt";
+// import LineChart from "../components/LineGraph/LineGraph";
+// import DonutChart from "../components/DonutGraph/DonutGraph";
+// import DonutChartAlt from "../components/DonutGraph/DonutGraphAlt";
 const DashboardLayout = lazy(() => import("../layouts/DashboardLayout"));
+const LineChart = lazy(() => import("../components/LineGraph/LineGraph"));
+const DonutChart = lazy(() => import("../components/DonutGraph/DonutGraph"));
+const DonutChartAlt = lazy(
+  () => import("../components/DonutGraph/DonutGraphAlt")
+);
+const ErrorComp = lazy(() => import("../components/Error/Error"));
 
 const Home = () => {
   const { isLoading, isError, data, error } = useQuery(
@@ -20,11 +26,10 @@ const Home = () => {
     () => fetchData(),
     {
       onSuccess: (data) => {
-        console.log(data);
         if (data) toast.success("Successful");
       },
-      onError: () => {
-        toast.error("An error occured");
+      onError: (err) => {
+        if (err) toast.error("An error occured");
       },
     }
   );
@@ -47,18 +52,12 @@ const Home = () => {
   }, [data]);
 
   if (isLoading) return <Spinner />;
-  if (isError)
-    return (
-      <div className="flex justify-center items-center">
-        "An error has occurred: " + {(error as any).message};
-      </div>
-    );
+  if (isError) return <ErrorComp err={(error as any).message} />;
   return (
     <Suspense fallback={<Spinner />}>
       <DashboardLayout>
-        <div className=" ">
+        <div>
           {graphData && <LineChart data={graphData} total={total} />}
-
           <div className="my-5 grid  grid-cols-1 lg:grid-cols-2 gap-[1rem]">
             {locations && <DonutChart data={locations} />}
             {refferal && <DonutChartAlt data={refferal} />}

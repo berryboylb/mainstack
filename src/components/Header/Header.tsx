@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
@@ -15,6 +15,18 @@ const Index: React.FC<Props> = ({
   mobileNav,
   handleMobileNav,
 }) => {
+  const [currentGreeting, setCurrentGreeting] = useState<string>("");
+  useEffect(() => {
+    const now = new Date();
+    const hours = now.getHours();
+    if (0 <= hours && hours <= 12) {
+      setCurrentGreeting(" Good morning, Blessing ⛅️");
+    } else if (hours >= 12 && hours < 16) {
+      setCurrentGreeting(" Good afternoon, Blessing 🌞");
+    } else {
+      setCurrentGreeting("Good evening, Blessing 🌙");
+    }
+  }, []);
   return (
     <Suspense>
       <header className="flex  md:px-0 justify-between items-center py-[1rem] bg-white font-sohne">
@@ -48,7 +60,7 @@ const Index: React.FC<Props> = ({
       </header>
       <div className="my-3">
         <h1 className="  text-bold lg:text-[1.5rem] text-[1.25rem] font-semibold">
-          Good morning, Blessing ⛅️
+          {currentGreeting}
         </h1>
         <div className="flex items-center justify-between mt-2 w-full flex-wrap ">
           <p className="text-light lg:text-[0.875rem] text-[0.75rem] w-full lg:w-auto">

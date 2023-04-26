@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Suspense} from "react";
 import {
   AreaChart,
   Area,
@@ -18,7 +18,7 @@ type Props = {
 const Chart: React.FC<Props> = ({ data, total }) => {
   const isMobile: boolean = useMediaQuery({ query: `(max-width: 768px)` });
   return (
-    <>
+    <Suspense>
       <div className="my-5 flex items-center justify-start font-sohne flex-wrap">
         <button
           onClick={() => (data.length = 1)}
@@ -106,7 +106,7 @@ const Chart: React.FC<Props> = ({ data, total }) => {
           </AreaChart>
         </ResponsiveContainer>
       </div>
-    </>
+    </Suspense>
   );
 };
 

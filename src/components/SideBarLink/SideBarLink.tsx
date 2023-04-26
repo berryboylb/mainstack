@@ -10,7 +10,7 @@ type Props = {
 
 function SidebarLink({ path, title, Icon, isIconMode = false }: Props) {
   const body = (
-    <div className=" flex justify-center items-center lg:block">
+    <div className="   ml-10 lg:ml-0">
       <span>
         {isIconMode ? (
           <FontAwesomeIcon

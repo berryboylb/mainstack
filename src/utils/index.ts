@@ -74,6 +74,7 @@ export function arangePieChart(arr: any) {
     })
   );
   const sortedArr = results.sort((a, b) => b.percent - a.percent);
+  console.log(sortedArr);
   return sortedArr;
 }
 
@@ -114,6 +115,5 @@ export function arrangeSocials(arr: any[]) {
     })
   );
   const sortedArr = results.sort((a, b) => b.percent - a.percent);
-  console.log(sortedArr);
   return sortedArr;
 }
