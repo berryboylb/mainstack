@@ -1,21 +1,11 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import {
   PieChart,
   Pie,
-  Sector,
   Cell,
-  ResponsiveContainer,
   Legend,
 } from "recharts";
 import { Link } from "react-router-dom";
-
-const data = [
-  { name: "Group A", value: 400 },
-  { name: "Group B", value: 300 },
-  { name: "Group C", value: 300 },
-  { name: "Group D", value: 200 },
-];
-const COLORS = ["#599EEA", "#0FB77A", "#FAB70A", "#F09468", "#844FF6"];
 
 type Props = {
   data: any[];

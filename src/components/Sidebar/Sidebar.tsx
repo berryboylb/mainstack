@@ -1,7 +1,5 @@
 import React, { Suspense } from "react";
 import { useMediaQuery } from "react-responsive";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Logo } from "../../assets";
 import { ListOne, ListTwo, ListThree } from "../../constants";
 

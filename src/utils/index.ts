@@ -1,6 +1,6 @@
 import toast from "react-hot-toast";
 import axios from "axios";
-import { Logo, Facebook, Instagram, LinkedIn, Twitter } from "../assets";
+import {  Facebook, LinkedIn, Twitter } from "../assets";
 export function formatDate(dateString: string) {
   const date = new Date(dateString);
   const monthNames = [
