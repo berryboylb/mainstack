@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { BounceLoader, PacmanLoader } from "react-spinners";
 import { useMediaQuery } from "react-responsive";
+import { BounceLoader, PacmanLoader } from "react-spinners";
 type Props = {
   toggle?: boolean;
 };
