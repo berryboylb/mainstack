@@ -56,7 +56,10 @@ const Index: React.FC<Props> = ({ mobileNav, expand }) => {
             }
           >
             {ListOne.map((link, i) => (
-              <li key={i} className=" w-full my-2 py-3">
+              <li
+                key={i}
+                className={expand ? "my-2 py-3" : " w-full my-2 py-3"}
+              >
                 <SideBarLink
                   isIconMode={expand}
                   Icon={link.icon}
@@ -83,7 +86,10 @@ const Index: React.FC<Props> = ({ mobileNav, expand }) => {
             }
           >
             {ListTwo.map((link, i) => (
-              <li key={i} className=" w-full my-2 py-3">
+              <li
+                key={i}
+                className={expand ? "my-2 py-3" : " w-full my-2 py-3"}
+              >
                 <SideBarLink
                   isIconMode={expand}
                   Icon={link.icon}
@@ -110,7 +116,10 @@ const Index: React.FC<Props> = ({ mobileNav, expand }) => {
             }
           >
             {ListThree.map((link, i) => (
-              <li key={i} className=" w-full my-2 py-3">
+              <li
+                key={i}
+                className={expand ? "my-2 py-3" : " w-full my-2 py-3"}
+              >
                 <SideBarLink
                   isIconMode={expand}
                   Icon={link.icon}
